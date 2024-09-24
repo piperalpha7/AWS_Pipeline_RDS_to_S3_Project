@@ -72,7 +72,7 @@ I went for another run of my Glue Pipeline. Post this run when I queried in Athe
 
 
 \
-\
+
 ## Iteration 2
 
 
