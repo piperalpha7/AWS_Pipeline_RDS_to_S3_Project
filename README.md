@@ -11,13 +11,16 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 
 
 
+
 2. Connected MySQL Workbench to the AWS RDS Instance
 
 ![image](https://github.com/user-attachments/assets/7a9f9e45-8705-451f-aedd-6a34032bda6a)
 
 
 
+
 3. Created Orders Table in AWS RDS instance through MySQL Workbench
+
 
 
    CREATE TABLE orders (
@@ -26,5 +29,10 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
     customer_id INT,               
     order_status VARCHAR(25)
 );
+
+
+
+4. Inserted records in this Table through 'LOAD LOCAL INFILE COMMAND'
+   EG. LOAD DATA INFILE 'data.txt' INTO TABLE db2.my_table;
 
 
