@@ -10,6 +10,21 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
    ![image](https://github.com/user-attachments/assets/929f9efe-6bcd-4de3-8591-9d297d63e36e)
 
 
+
 2. Connected MySQL Workbench to the AWS RDS Instance
 
 ![image](https://github.com/user-attachments/assets/7a9f9e45-8705-451f-aedd-6a34032bda6a)
+
+
+
+3. Created Orders Table in AWS RDS instance through MySQL Workbench
+
+
+   CREATE TABLE orders (
+    order_id INT,              
+    order_last_updated DATETIME,          
+    customer_id INT,               
+    order_status VARCHAR(25)
+);
+
+
