@@ -169,7 +169,44 @@ The table will have all the valid Order Status and will look like:-
 The pipeline will look like:-
 
 
-![pipeline2](https://github.com/user-attachments/assets/bfeea1ec-701a-49a6-8093-9316161ea420)
+![pipeline2](https://github.com/user-attachments/assets/09ace338-3b85-47ae-bad6-ae52ce83af13)
+
+
+Let me explain the components of my Pipeline2. They are as follows:
+
+Left Join(Transform):
+I have used this Transformation to see which order statuses in the orders table are invalid. The valid order statuses as described above are in 'order_status_lookup' table. 
+
+![image](https://github.com/user-attachments/assets/8963fbff-f097-4a95-acb1-5a6253294794)
+
+You see in the above image due to left join the 'order_status' that are invalid are earmarked by the adjoining null values in the 'status_name' Column...(please note the 'order_status' column is from the 'orders' table and the 'status_name' column is from the 'order_status_lookup' table).
+
+SQL Query(Transform):
+
+Once the Invalid statuses are identified we substitute the null values in the'status_name' column with the keyword 'Invalid'.
+
+This is donw with the help of the following query:-
+
+select order_id,order_last_updated,customer_id,order_status, coalesce(status_name,'Invalid') from cte
+
+The joined result will now look like:- 
+
+![image](https://github.com/user-attachments/assets/ae843efa-8bad-446d-a1e9-0b04350357f0)
+
+
+
+Conditional Router(Transform) - 
+
+We use the 'Conditional' Router Transform and classify all the records with 'Invalid'  as 'status_name' to get diverted to 'Incorrect Records'and the rest as 'Correct Records'
+
+The correct records will then got the 'Staging' folder as described above while the Incorrect recors go the 'Discarded' Folder.
+
+All the Records post quality check needed to go to the 'Archived' folder while vacating the 'Staging' folder, which wasnt possible through Visual ETL, hence here I shifted to the 'Script' mode and modified the code. The 'boto3' library which is used to manipulate objects in S£ was very handy here. The code is attached :
+
+
+
+
+
 
 
 
