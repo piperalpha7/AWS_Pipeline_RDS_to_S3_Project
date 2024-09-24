@@ -33,6 +33,8 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 
 
 4. Inserted records in this Table through 'LOAD LOCAL INFILE COMMAND'
+
+
    EG. LOAD DATA INFILE 'data.txt' INTO TABLE db2.my_table;
 
 
