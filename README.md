@@ -203,7 +203,11 @@ The correct records will then got the 'Staging' folder as described above while 
 
 All the Records post quality check needed to go to the 'Archived' folder while vacating the 'Staging' folder, which wasnt possible through Visual ETL, hence here I shifted to the 'Script' mode and modified the code. The 'boto3' library which is used to manipulate objects in S£ was very handy here. The code is attached :
 
-![Code]https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/Pipeline2.py
+![Code](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/Pipeline2.py)
+
+## Iteration 5
+
+Here my intention was to automate, my Pipeline2(Data Check pipeline) with the help of AWS Lambda instance and add a trigger which triggers the pipeline as soon as it witnesses a file in the 'Staging' folder in the AWS S3 bucket. The code for AWS Lambda function is attached
 
 
 
