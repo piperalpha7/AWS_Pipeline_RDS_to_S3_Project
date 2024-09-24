@@ -13,7 +13,7 @@ This pipeline was built Iteratively as follows:
 
 1. Created an AWS RDS Instance(MYSQL)
 
-   ![image](https://github.com/user-attachments/assets/929f9efe-6bcd-4de3-859d1-9d297d63e36e)
+![image](https://github.com/user-attachments/assets/929f9efe-6bcd-4de3-859d1-9d297d63e36e)
 
 
 
