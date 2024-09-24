@@ -43,6 +43,7 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 \
 \
 5. Create an AWS S3 Bucket(eg.du-aws-project) and then a folder called 'Orders' . Inside the 'Orders' Folder I created another Folder called 'Landing'.
+
 \
 \
 6. In AWS Glue I created a Visual ETL
@@ -52,6 +53,7 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 Source - RDS
 Transform - Change Schema ( Adjusting Datatypes)
 Target - AWS S3 Bucket('Landing' Folder) 
+
 \
 \
 7. Catalogued the files(Data Catalog) that would be entering in the S£ Bucket, so I could query them in Athena by building a table on top of them if needed 
