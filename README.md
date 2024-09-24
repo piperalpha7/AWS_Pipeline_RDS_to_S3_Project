@@ -1,13 +1,19 @@
 # AWS_Pipeline_RDS_to_S3_Project
 Extract Load Transform(ETL) Pipeline from AWS RDS instance to AWS S3 Bucket
 
-In this project , I created a data pipeline in AWS Glue which ingested Data from an AWS RDS instance and loaded it into an AWS S3 bucket. Carried out some transformations in between and used triggers to automate the Pipeline. This pipeline was built Iteratively as follows:
+In this project , I created a data pipeline in AWS Glue which ingested Data from an AWS RDS instance and loaded it into an AWS S3 bucket. Carried out some transformations in between and used triggers to automate the Pipeline. The rough pipeline structure is as follows:
+
+Pipeline1 - Extract incremental data from AWS RDS instance to AWS S3 bucket('Landing' folder). This pipeline is intended to be triggered by a schedule.
+Pipeline2 - When file arrives in the 'Staging ' folder, AWS Lambda will trigger the 2nd pipeline. This pipeline will do some data quality checks,seperate the incorrect records from correct and seggregate them.
+
+
+This pipeline was built Iteratively as follows:
 
 ## Iteration 1
 
 1. Created an AWS RDS Instance(MYSQL)
 
-   ![image](https://github.com/user-attachments/assets/929f9efe-6bcd-4de3-8591-9d297d63e36e)
+   ![image](https://github.com/user-attachments/assets/929f9efe-6bcd-4de3-859d1-9d297d63e36e)
 
 
 
@@ -207,8 +213,21 @@ All the Records post quality check needed to go to the 'Archived' folder while v
 
 ## Iteration 5
 
-Here my intention was to automate, my Pipeline2(Data Check pipeline) with the help of AWS Lambda instance and add a trigger which triggers the pipeline as soon as it witnesses a file in the 'Staging' folder in the AWS S3 bucket. The code for AWS Lambda function is attached
+Here my intention was to automate, my Pipeline2(Data Check pipeline) with the help of AWS Lambda instance and add a trigger which triggers the pipeline as soon as it witnesses a file in the 'Staging' folder in the AWS S3 bucket(S3 event triggering). The code for AWS Lambda function is attached:-
 
+![Code](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/lambdafunc.py)
+
+So in short, the AWS Glue pipeline(Pipeline2) will be run by AWS Lambda and the AWS Lamda function will be triggered by S3 event viz . when file arrives in 'Staging' folder.
+
+## Iteration 6
+
+Now it is time to automate the 'Pipeline1' ... This is done by scheduling through CRON expressions
+
+![image](https://github.com/user-attachments/assets/641fd07c-f9c1-4cde-a9cc-44d57869fd4c)
+
+A CRON expression is a string consisting of 6 fields sepearated by spaces each character in the string is used to specify the different units of time like day, month, time etc
+
+Hence, I was able to successfully build an ETL Pipeline(Pipeline1 + Pipeline2) in AWS. 
 
 
 
