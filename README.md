@@ -143,7 +143,7 @@ Our Pipeline is now capable to do incremental processing. However even at this s
 
 To automate the entry in the fetch_details(metadata) table, we wont find many solutions in the 'Visual ETL' method, hence it is better to shift to the 'Script' Method. The moment we do that our 'Visual ETL' can be seen in code format.
 
-![Code](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/glue_CD_script.py)
+![Code](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/Pipeline1.py)
 
 Through the 'Script' mode we have now succesfully created a pipeline 'Pipeline1' which extracts, transforms and loads incremental data in AWS 'S3' bucket. We will schedule a trigger for this pipeline later
 
