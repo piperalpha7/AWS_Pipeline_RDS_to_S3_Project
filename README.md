@@ -56,7 +56,7 @@ Target - AWS S3 Bucket('Landing' Folder)
 
 \
 \
-7. Catalogued the files(Data Catalog) that would be entering in the S£ Bucket, so I could query them in Athena by building a table on top of them if needed 
+7. Catalogued the files(Data Catalog) that would be entering in the S3 Bucket, so I could query them in Athena by building a table on top of them if needed 
 
 The 1st run of the AWS Glue Pipeline saw the successful loading of data in the form of 'parquet' files in the S3 bucket. The query in Athena confirmed that all our records(68883) had loaded successfully in the S3 Bucket
 
@@ -128,6 +128,7 @@ Our Pipeline is now capable to do incremental processing. However even at this s
 
 To automate the entry in the fetch_details(metadata) table, we wont find many solutions in the 'Visual ETL' method, hence it is better to shift to the 'Script' Method. The moment we do that our 'Visual ETL' can be seen in code format.
 
+![Alt text](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/glue_CD_script.py)
 
 
 
