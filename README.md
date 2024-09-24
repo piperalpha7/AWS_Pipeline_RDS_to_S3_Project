@@ -122,6 +122,12 @@ The query I used here is as follows:
 
 select * from orders where order_last_updated > = (select max(last_fetched) from fetch_details where tablename = 'orders')
 
+Our Pipeline is now capable to do incremental processing. However even at this stage I am still manually updateing my metadata table and self - triggering my pipeline. There is more scope for improvement.
+
+## Iteration 3
+
+To automate the entry in the fetch_details(metadata) table, we wont find many solutions in the 'Visual ETL' method, hence it is better to shift to the 'Script' Method. The moment we do that our 'Visual ETL' can be seen in code format.
+
 
 
 
