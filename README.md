@@ -128,11 +128,48 @@ Our Pipeline is now capable to do incremental processing. However even at this s
 
 To automate the entry in the fetch_details(metadata) table, we wont find many solutions in the 'Visual ETL' method, hence it is better to shift to the 'Script' Method. The moment we do that our 'Visual ETL' can be seen in code format.
 
-![Alt text](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/glue_CD_script.py)
+![Code](https://github.com/piperalpha7/AWS_Pipeline_RDS_to_S3_Project/blob/main/glue_CD_script.py)
+
+Through the 'Script' mode we have now succesfully created a pipeline 'Pipeline1' which extracts, transforms and loads incremental data in AWS 'S3' bucket. We will schedule a trigger for this pipeline later
 
 
+## Iteration 4
+
+Next, I want to build a 'Data Quality' Pipeline(Pipeline2) wherein I want to only keep the valid 'order_status' and want to discard the rest 
+
+So, first I creat 3 more folders in my S3 bucket viz. 'Staging', 'Discarded' and 'Archived'.
+
+So, once my data lands in the 'Landing folder of my S3 bucket, I would carry on my Data Quality check:-
+1. Records which pass the check will move to the 'Staging' folder.
+2. Records which DO NOT pass the check will move to the 'Discarded' folder.
+3. After the records in the 'Landing' folder go through the data quality checks, they will all go to the 'archived' folder' thereby vacating the 'landing' folder.
+
+ Firstly, I create a new my SQL Table:-
+
+ CREATE TABLE order_status_lookup (
+    status_name VARCHAR(50) NOT NULL);
+
+    INSERT INTO order_status_lookup (status_name) 
+VALUES 
+('ON_HOLD'),
+('PAYMENT_REVIEW'),
+('PROCESSING'),
+('CLOSED'),
+('SUSPECTED_FRAUD'),
+('COMPLETE'),
+('PENDING'),
+('CANCELED'),
+('PENDING_PAYMENT');
 
 
+The table will have all the valid Order Status and will look like:-
+
+![image](https://github.com/user-attachments/assets/9c2185d0-1745-4613-90f7-d5d654eb99ac)
+
+The pipeline will look like:-
+
+
+![pipeline2](https://github.com/user-attachments/assets/bfeea1ec-701a-49a6-8093-9316161ea420)
 
 
 
