@@ -11,7 +11,8 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 
 
 
-
+\
+\
 2. Connected MySQL Workbench to the AWS RDS Instance
 
 ![image](https://github.com/user-attachments/assets/7a9f9e45-8705-451f-aedd-6a34032bda6a)
