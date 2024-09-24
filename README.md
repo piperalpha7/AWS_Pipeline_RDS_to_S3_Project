@@ -18,8 +18,8 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
 ![image](https://github.com/user-attachments/assets/7a9f9e45-8705-451f-aedd-6a34032bda6a)
 
 
-
-
+\
+\
 3. Created Orders Table in AWS RDS instance through MySQL Workbench
 
 
@@ -31,11 +31,24 @@ In this project , I created a data pipeline in AWS Glue which ingested Data from
     order_status VARCHAR(25)
 );
 
-
-
+\
+\
 4. Inserted records in this Table through 'LOAD LOCAL INFILE COMMAND'
 
 
    EG. LOAD DATA INFILE 'data.txt' INTO TABLE db2.my_table;
+
+\
+\
+5. Create an AWS S3 Bucket(eg.du-aws-project) and then a folder called 'Orders' . Inside the 'Orders' Folder I created another Folder called 'Landing'.
+\
+\
+6. In AWS Glue I created a Visual ETL
+
+![Pipeline1_1](https://github.com/user-attachments/assets/5706ba2e-a273-49cd-bcf0-05a0e9f0e7a0)
+
+
+
+
 
 
