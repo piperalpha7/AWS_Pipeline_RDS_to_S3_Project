@@ -67,7 +67,10 @@ I now inserted a single record and ran the Glue Pipeline again. The query on Ath
 
 
 I went for another run of my Glue Pipeline. Post this run when I queried in Athena I found that there were 137767 records(68883+1+68883). This meant that my pipeline was reinserting the already inserted records in S3 which causes a duplication of Records. Hence I would need to do an incremental processing as an enhancement in my pipeline
-
+\
+\
+\
+## Iteration 2
 
 
 
