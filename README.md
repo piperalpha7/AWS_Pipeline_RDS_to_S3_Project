@@ -1,6 +1,15 @@
 # AWS_Pipeline_RDS_to_S3_Project
 Extract Load Transform(ETL) Pipeline from AWS RDS instance to AWS S3 Bucket
 
+## Tools used
+1. AWS RDS
+2. AWS S3
+3. AWS Glue Visual ETL
+4. AWS Glue Script Mode
+5. AWS Glue Data Catalog
+6. AWS Athena
+
+
 In this project , I created a data pipeline in AWS Glue which ingested Data from an AWS RDS instance and loaded it into an AWS S3 bucket. Carried out some transformations in between and used triggers to automate the Pipeline. The rough pipeline structure is as follows:
 
 Pipeline1 - Extract incremental data from AWS RDS instance to AWS S3 bucket('Landing' folder). This pipeline is intended to be triggered by a schedule.
